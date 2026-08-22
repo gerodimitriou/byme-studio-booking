@@ -8,6 +8,8 @@ and reporting.
 Built end to end (design, frontend, database, auth model, deployment) with
 React, Supabase and Tailwind.
 
+**→ Live: [byme-six.vercel.app](https://byme-six.vercel.app)**
+
 ![Landing page](docs/screenshots/01-hero.png)
 
 ---
