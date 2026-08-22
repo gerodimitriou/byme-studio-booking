@@ -1,0 +1,27 @@
+# dependencies
+node_modules/
+
+# build output (contains baked-in VITE_ env values — never commit)
+dist/
+*.local
+
+# secrets
+.env
+.env.*
+!.env.example
+.mcp.json
+
+# deploy / tooling
+.vercel
+.playwright-mcp/
+.claude/
+.agents/
+skills-lock.json
+
+# scratch files in the project root (site assets live in public/ and are kept)
+copy-preview.md
+/unnamed*.webp
+/att.*.JPG
+
+# os
+.DS_Store

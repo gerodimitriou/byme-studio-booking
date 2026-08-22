@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light;
+  }
+
+  body {
+    @apply bg-ink text-bone font-sans antialiased;
+    overflow-x: hidden;
+    font-feature-settings: 'ss01', 'ss02';
+  }
+
+  ::selection {
+    background: #B08D57;
+    color: #FAF6EF;
+  }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #0E0C0A; }
+  ::-webkit-scrollbar-thumb { background: #B08D57; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #D9A86C; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+
+  .glow-bronze {
+    box-shadow: 0 0 40px rgba(176, 141, 87, 0.22);
+  }
+
+  .glow-ember {
+    box-shadow: 0 0 28px rgba(255, 122, 26, 0.45), 0 0 60px rgba(255, 122, 26, 0.18);
+  }
+
+  .text-stroke {
+    -webkit-text-stroke: 1px currentColor;
+    color: transparent;
+  }
+
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  }
+
+  .mask-fade-r {
+    -webkit-mask-image: linear-gradient(to right, black 90%, transparent 100%);
+            mask-image: linear-gradient(to right, black 90%, transparent 100%);
+  }
+
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.06;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  }
+}

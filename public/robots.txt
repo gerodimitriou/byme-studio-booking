@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin/login
+Disallow: /me
+Disallow: /login
+Disallow: /cancel/
+
+Sitemap: https://oneworldbyme.gr/sitemap.xml

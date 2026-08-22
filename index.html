@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="el">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="One World ByME — Boutique Fitness & Pilates Studio στο Περιστέρι. Pilates Reformer, Personal Training, Group Training. Κλείσε ραντεβού online." />
+    <meta name="keywords" content="Pilates Reformer, Personal Training, Group Training, γυμναστήριο Περιστέρι, pilates Αθήνα, boutique studio, ByME" />
+    <meta name="author" content="One World ByME" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://oneworldbyme.gr/" />
+    <meta name="theme-color" content="#0E0C0A" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="ByME" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <title>One World ByME — Boutique Fitness & Pilates Studio στο Περιστέρι</title>
+
+    <!-- Open Graph (Facebook, Instagram, LinkedIn, Messenger) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="One World ByME" />
+    <meta property="og:title" content="One World ByME — Boutique Fitness & Pilates Studio" />
+    <meta property="og:description" content="Pilates Reformer, Personal Training & Group Training στο Περιστέρι. Κλείσε ραντεβού online." />
+    <meta property="og:url" content="https://oneworldbyme.gr/" />
+    <meta property="og:image" content="https://oneworldbyme.gr/images/pilates-hero.webp" />
+    <meta property="og:image:alt" content="One World ByME — Pilates & Fitness Studio" />
+    <meta property="og:locale" content="el_GR" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="One World ByME — Boutique Fitness & Pilates Studio" />
+    <meta name="twitter:description" content="Pilates Reformer, Personal Training & Group Training στο Περιστέρι. Κλείσε ραντεβού online." />
+    <meta name="twitter:image" content="https://oneworldbyme.gr/images/pilates-hero.webp" />
+
+    <!-- Structured data: local business for Google rich results -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HealthClub",
+      "@id": "https://oneworldbyme.gr/#studio",
+      "name": "One World ByME",
+      "description": "Boutique Fitness & Pilates Studio — Pilates Reformer, Personal Training, Group Training.",
+      "url": "https://oneworldbyme.gr/",
+      "image": "https://oneworldbyme.gr/images/pilates-hero.webp",
+      "logo": "https://oneworldbyme.gr/icons/icon-512.png",
+      "telephone": "+302120212371",
+      "email": "hello@oneworldbyme.gr",
+      "priceRange": "€€",
+      "currenciesAccepted": "EUR",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Πεισιστράτου 15",
+        "addressLocality": "Περιστέρι",
+        "addressRegion": "Αττική",
+        "postalCode": "121 37",
+        "addressCountry": "GR"
+      },
+      "sameAs": [
+        "https://www.instagram.com/oneworldbyme/"
+      ],
+      "makesOffer": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pilates Reformer" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Personal Training" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Group Training" } }
+      ]
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {})
+        })
+      }
+      window.__installPrompt = null;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        window.__installPrompt = e;
+      });
+    </script>
+  </body>
+</html>
