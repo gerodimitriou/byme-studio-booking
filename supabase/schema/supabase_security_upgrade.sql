@@ -3,11 +3,13 @@
 -- Run this ONCE in Supabase Dashboard → SQL Editor.
 -- Safe to re-run (idempotent).
 --
--- ⚠️  DO NOT RUN THIS YET.
---     The admin login is currently the temporary PIN (anon role). This file
---     locks the members table to the *authenticated* admin, so running it now
---     would hide the members list from the admin. Run it ONLY after the admin
---     login has been switched to Supabase Auth (the final hardening step).
+-- STATUS: applied in production. The admin login runs on Supabase Auth
+-- (supabase.auth.signInWithPassword, see src/pages/Login.jsx) and the public
+-- anon key is refused on `members`.
+--
+-- PREREQUISITE, if you are setting up a fresh project: the admin account must
+-- exist and be able to log in BEFORE this runs, or you lock yourself out of
+-- the members list. See "ORDER OF OPERATIONS" below.
 --
 -- WHAT IT DOES
 --   • Stops anyone with the public anon key from dumping the members
@@ -26,8 +28,10 @@
 --      migration thanks to graceful fallbacks, so there is no rush — but
 --      do step 1 & 2 first so you don't lock yourself out of the members list.)
 --
--- The bookings & subscriptions tables stay readable by the booking flow
--- (they carry no login credentials); only the members table is locked.
+-- This file locks `members` only. Note that production has since been
+-- tightened further by hand: `bookings`, `subscriptions` and
+-- `medical_certificates` also refuse the anon key there, which the files in
+-- this directory do not yet reproduce. See README.md in this directory.
 -- ============================================================
 
 -- ------------------------------------------------------------
