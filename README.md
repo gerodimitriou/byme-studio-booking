@@ -111,16 +111,18 @@ npm run preview   # serve the build locally
 
 ## Status
 
-Deployed and in use. Two things are deliberately unfinished:
+Deployed and in use.
 
-**Admin auth.** The admin login currently uses a temporary PIN. The final
-hardening step is switching it to Supabase Auth and then applying
-`supabase_security_upgrade.sql`, which locks the `members` table to the
-authenticated admin. That ordering is documented in the file itself.
+Admin authentication runs on Supabase Auth, and the RLS lockdown in
+`supabase_security_upgrade.sql` has been applied: `members`, `bookings`,
+`subscriptions` and `medical_certificates` all reject reads from the public
+anon key, and member self-service reaches them only through the
+`SECURITY DEFINER` RPCs.
 
-**Transactional email.** `src/lib/emailjs.js` is scaffolded but not wired into
-the booking flow, and no email provider is configured in production — the app
-sends no email today. Member-facing notifications go out over web push instead.
+One piece is deliberately unfinished: **transactional email**.
+`src/lib/emailjs.js` is scaffolded but not wired into the booking flow, and no
+email provider is configured in production — the app sends no email today.
+Member-facing notifications go out over web push instead.
 
 ---
 
