@@ -28,12 +28,14 @@ reviews and location, plus the booking flow.
 - Rolling 14-day booking window.
 - When a slot is full, the booking falls back to a **standby list** — a
   cancellation automatically promotes the next person waiting.
-- Confirmation email with a one-click self-cancel link (`/cancel/:id`).
+- Members cancel their own bookings from the portal; a standalone
+  `/cancel/:id` page handles single-booking cancellation by link.
 
 **Member portal** (`/me`)
 - Members log in with a personal code and see their subscription, remaining
   session credits, booking history and upcoming sessions.
-- Web-push reminders for upcoming bookings.
+- Web-push reminders for upcoming bookings, sent from a scheduled Supabase
+  Edge Function.
 
 **Admin dashboard** (`/admin`)
 - Bookings as a calendar or a filterable list (pending / completed / standby /
@@ -57,7 +59,6 @@ More screens in [`docs/screenshots/`](docs/screenshots/).
 | Frontend | React 18, React Router 7, Vite 5 |
 | Styling | Tailwind CSS 3, Framer Motion |
 | Backend | Supabase (Postgres, Row Level Security, Edge Functions) |
-| Email | EmailJS |
 | Notifications | Web Push (VAPID) via a Supabase Edge Function |
 | Export | SheetJS (`xlsx`) |
 | Hosting | Vercel |
@@ -93,7 +94,7 @@ commented SQL file in `supabase/schema/`, safe to re-run.
 
 ```bash
 npm install
-cp .env.example .env     # fill in your own Supabase / EmailJS values
+cp .env.example .env     # fill in your own Supabase values
 npm run dev
 ```
 
@@ -110,10 +111,16 @@ npm run preview   # serve the build locally
 
 ## Status
 
-Feature-complete and deployed. The admin login currently uses a temporary PIN;
-the final hardening step is switching it to Supabase Auth and then applying
+Deployed and in use. Two things are deliberately unfinished:
+
+**Admin auth.** The admin login currently uses a temporary PIN. The final
+hardening step is switching it to Supabase Auth and then applying
 `supabase_security_upgrade.sql`, which locks the `members` table to the
 authenticated admin. That ordering is documented in the file itself.
+
+**Transactional email.** `src/lib/emailjs.js` is scaffolded but not wired into
+the booking flow, and no email provider is configured in production — the app
+sends no email today. Member-facing notifications go out over web push instead.
 
 ---
 
