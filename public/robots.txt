@@ -6,4 +6,4 @@ Disallow: /me
 Disallow: /login
 Disallow: /cancel/
 
-Sitemap: https://oneworldbyme.gr/sitemap.xml
+Sitemap: https://byme-six.vercel.app/sitemap.xml
